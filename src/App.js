@@ -33,7 +33,7 @@ function App() {
   return (
     <>
     <section>
-
+{/* 
     <div>
            
             <Amyrobson
@@ -59,7 +59,7 @@ function App() {
             )}
 
             <Comment />
-        </div>
+        </div> */}
     </section>
     
       <section>
