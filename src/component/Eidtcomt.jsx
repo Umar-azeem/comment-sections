@@ -1,15 +1,13 @@
 import { useInputData, useSave } from "./zustand";
-
 function Eidtcomt({ id, handleEidtInputComt }) {
   const { eidtinputData, setEidtInputData } = useInputData();
-  const { setEidtInputupdate,setcommentOpen } = useSave();
+  const { setEidtInputupdate, setcommentOpen } = useSave();
   const handleEidtInput = (e) => {
     setEidtInputData(e.target.value);
   };
 
   return (
     <>
-      {JSON.stringify(id)}
       <div className="flex justify-center items-center m-8">
         <div className="bg-white border flex flex-row items-center rounded-lg p-3 md:p-8 w-3/4">
           <div className="w-full flex flex-col-reverse lg:flex-row">

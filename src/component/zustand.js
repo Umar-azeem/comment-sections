@@ -7,6 +7,7 @@ export const useStore = create((set) => ({
 export const useInputData = create((set) => ({
   inputData: "",
   eidtinputData: "",
+  replyInputData:"",
   setInputData: (newInputData) =>
     set(() => ({
       inputData: newInputData,
@@ -15,11 +16,15 @@ export const useInputData = create((set) => ({
     set(() => ({
       eidtinputData: newEidtInputData,
     })),
+    setReplyInputData: (newReplyInputData) =>
+      set(() => ({
+        eidtinputData: newReplyInputData,
+      })),
 }));
 
 export const useSave = create((set) => ({
   SaveData: [],
- 
+
   setSaveData: (yu) =>
     set((state) => {
       if (yu) {
@@ -32,7 +37,7 @@ export const useSave = create((set) => ({
               id: Math.random() * 1000,
               likes: 0,
               showReply: false,
-              commentOpen:false,
+              commentOpen: false,
             },
           ],
         };
@@ -50,13 +55,15 @@ export const useSave = create((set) => ({
       console.log("");
       return {
         SaveData: state.SaveData.map((item) =>
-          Number(item.id) === Number(id)  ? { ...item, showReply: !item.showReply } : item
+          Number(item.id) === Number(id)
+            ? { ...item, showReply: !item.showReply }
+            : item
         ),
       };
     }),
   SaveDataDelete: (id) =>
     set((state) => {
-      console.log("id",id);
+      console.log("id", id);
       return {
         SaveData: state.SaveData.filter(
           (item) => Number(item.id) !== Number(id)
@@ -64,29 +71,37 @@ export const useSave = create((set) => ({
       };
     }),
   setIncrease: (id) =>
-        set((state) => {
-          const updatedData = state.SaveData.map((item) =>  
-            item.id === id ? { ...item, likes:item.likes + 1 } : item
-          );
-          return { SaveData: updatedData };
-        }),
+    set((state) => {
+      const updatedData = state.SaveData.map((item) =>
+        item.id === id ? { ...item, likes: item.likes + 1 } : item
+      );
+      return { SaveData: updatedData };
+    }),
   setDecrease: (id) =>
-        set((state) => {
-          const updatedData = state.SaveData.map((item) =>  
-            item.id === id ? { ...item, likes: item.likes - 1 } : item
-          );
-          return { SaveData: updatedData };
-        }),
-        setcommentOpen:(id) =>
-          set((state) => {
-            console.log(id); 
-            return {
-              SaveData: state.SaveData.map((item) =>
-                Number(item.id) === Number(id)
-                  ? { ...item, commentOpen: !item.commentOpen }
-                  : item
-              ),
-            };
-          })
-    
-        }))
+    set((state) => {
+      const updatedData = state.SaveData.map((item) =>
+        item.id === id ? { ...item, likes: item.likes - 1 } : item
+      );
+      return { SaveData: updatedData };
+    }),
+  setcommentOpen: (id) =>
+    set((state) => {
+      console.log(id);
+      return {
+        SaveData: state.SaveData.map((item) =>
+          Number(item.id) === Number(id)
+            ? { ...item, commentOpen: !item.commentOpen }
+            : item
+        ),
+      };
+    }),
+  AddReply: ({ id, replyInputData }) =>
+    set((state) => {
+      console.log("s",replyInputData);
+      return {
+        SaveData: state.SaveData.map((item) =>
+          Number(item.id) === Number(id) ? { ...item, reply: replyInputData } : item
+        ),
+      };
+    }),
+}));

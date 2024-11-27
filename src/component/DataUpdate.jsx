@@ -4,23 +4,15 @@ import DeleteEidt from "./DeleteEidt";
 import minus from "../img/minus.svg";
 import plus from "../img/plus.svg";
 import { useSave } from "./zustand";
-import Comment from "./Comment";
-import { useState } from "react";
+import AddReplyCmt from "./AddReplyCmt";
 import Replybutton from "./ReplyButton";
 import ReplyData from "./ReplyData";
 import AlartDelete from "./AlartDelete";
-import { useInputData } from "./zustand";
 import Eidtcomt from "./Eidtcomt";
 
-function DataUpdate({ handleAlert, showAlert, handleEidtInputComt, showEidt }) {
+function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
   const { SaveData, setIncrease, setDecrease } = useSave();
-  const [showReply, setShowReply] = useState(false);
-  const { eidtinputData, setEidtInputData } = useInputData();
   const { setcommentOpen } = useSave();
-
-  const hanldeReplybox = () => {
-    setShowReply(!showReply);
-  };
 
   return (
     <>
@@ -28,8 +20,6 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt, showEidt }) {
         <div>
           {SaveData.map((item) => (
             <>
-              {" "}
-              {JSON.stringify(item.commentOpen)}
               {item.commentOpen ? (
                 <Eidtcomt
                   id={item.id}
@@ -112,18 +102,16 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt, showEidt }) {
                   </div>
                 </div>
               )}
-              {
-                item.reply.map((reply) => (
-                  <div className="w-96">
-                    asd
-                    <ReplyData key={reply.id} reply={reply} />
-                  </div>
-                ))}
+              {item.reply.map((reply) => (
+                <div className="w-96">
+                    sss
+                  <ReplyData key={reply.id} reply={reply} />
+                </div>
+              ))}
               {item.showReply && (
                 <>
                   {" "}
-                  asdf
-                  <Comment />
+                  <AddReplyCmt  id={item.id} />  
                 </>
               )}
               {showAlert && (
