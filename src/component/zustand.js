@@ -50,13 +50,13 @@ export const useSave = create((set) => ({
       console.log("");
       return {
         SaveData: state.SaveData.map((item) =>
-          Number(item.id) !== Number(id)  ? { ...item, showReply: !item.showReply } : item
+          Number(item.id) === Number(id)  ? { ...item, showReply: !item.showReply } : item
         ),
       };
     }),
   SaveDataDelete: (id) =>
     set((state) => {
-      console.log("");
+      console.log("id",id);
       return {
         SaveData: state.SaveData.filter(
           (item) => Number(item.id) !== Number(id)
@@ -77,10 +77,16 @@ export const useSave = create((set) => ({
           );
           return { SaveData: updatedData };
         }),
-  setcommentOpen: (id) =>
-          set((state) => ({
-           SaveDate:state.SaveData.map((item) => Number(item.id) == Number(id) ? { ...item, CommentOpen: !item.commentOpen } : item )})
-         ),
-    }));
+        setcommentOpen:(id) =>
+          set((state) => {
+            console.log(id); 
+            return {
+              SaveData: state.SaveData.map((item) =>
+                Number(item.id) === Number(id)
+                  ? { ...item, commentOpen: !item.commentOpen }
+                  : item
+              ),
+            };
+          })
     
-    
+        }))

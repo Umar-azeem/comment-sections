@@ -13,10 +13,11 @@ import { useInputData } from "./zustand";
 import  Eidtcomt  from "./Eidtcomt";
 
 function DataUpdate({ handleAlert,showAlert,handleEidtInputComt,showEidt  }) { 
-  const { SaveData,setIncrease, setDecrease,commentOpen,setcommentOpen} = useSave();  
+  const { SaveData,setIncrease, setDecrease} = useSave();  
   const [showReply,setShowReply] = useState(false);    
   const { eidtinputData, setEidtInputData } = useInputData();
-  
+   const { setcommentOpen } = useSave();
+
 
   const hanldeReplybox = () => {
     setShowReply(!showReply);
@@ -27,9 +28,9 @@ function DataUpdate({ handleAlert,showAlert,handleEidtInputComt,showEidt  }) {
     <>
 
    {(<div>   
-   {JSON.stringify(commentOpen)}
+ 
     {SaveData.map((item) => (
-        <>
+        <>  {JSON.stringify(item.commentOpen)}
         {item.commentOpen   ? <Eidtcomt id={item.id} handleEidtInputComt={handleEidtInputComt} /> :    <div key={item.id} className="flex justify-center items-center sm:m-8">
        
       <div className="bg-white border flex justify-between flex-col  lg:flex-row rounded-lg p-5 w-3/4">
@@ -62,18 +63,17 @@ function DataUpdate({ handleAlert,showAlert,handleEidtInputComt,showEidt  }) {
                 
                   <> <PlusMinusButton item={item}  />
                     <p>
-                      {item.message}
+                      {item.message}{item.set}
                     </p></> 
                
                   </div>
-                  
-                  <DeleteEidt  setcommentOpen={setcommentOpen} handleEidtInputComt={handleEidtInputComt} handleAlert={handleAlert} />
+                  <DeleteEidt  id={item.id} commentOpen={item.commentOpen}  setcommentOpen={setcommentOpen} handleEidtInputComt={handleEidtInputComt}  handleAlert={handleAlert}/>
                 </div>
               </div>
             </div>
             <div className="mr-8 hidden w-1/5 lg:flex justify-end">
-              <DeleteEidt handleEidtInputComt={handleEidtInputComt} handleAlert={handleAlert} />
-              <Replybutton      id={item.id} SaveData={SaveData} item={item} />
+              <DeleteEidt id={item.id}  setcommentOpen={setcommentOpen}  handleEidtInputComt={handleEidtInputComt} handleAlert={handleAlert} />
+              <Replybutton  id={item.id} SaveData={SaveData} item={item} />
             {/* Pass handleAlert here */}
             </div>  </div>
       </div>}

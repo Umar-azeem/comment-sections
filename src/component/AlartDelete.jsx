@@ -5,8 +5,8 @@ function AlartDelete({handleAlert,id}) {
     return (
       <> <div className="w-full flex justify-center items-center">
             <div onClick={() => {
-               handleAlert()
-               SaveDataDelete(id)
+               handleAlert();
+               SaveDataDelete(id);
             }} className="flex border flex-col rounded-lg p-4 lg:p-6 md:w-2/3 lg:w-1/3 text-center bg-white shadow-md">
                      <h1 className="text-gray-600 py-2 text-start text-lg font-bold ">
               Delete Comment
