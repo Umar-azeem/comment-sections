@@ -63,9 +63,6 @@ function App() {
     </section>
     
       <section>
-        {/*  <Amyrobson />    */}
-        {/*  <Ramsesmiron />  */}
-        {/*  <Maxblagun />    */}
         <DataUpdate showEidt={showEidt} showAlert={showAlert} handleAlert={handleAlert}  handleEidtInputComt={handleEidtInputComt}/> 
         <Comment/>   
       </section>
