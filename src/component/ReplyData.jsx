@@ -6,7 +6,7 @@ import plus from "../img/plus.svg";
 import { useSave } from "./zustand";
 import { useStore } from "./zustand";
 function DataUpdate({ handleAlert,item }) { 
-  const { SaveData } = useSave();
+  const { SaveData,commentOpen,setcommentOpen} = useSave();
   const {showReply} = useStore();
  
  console.log("id",showReply)

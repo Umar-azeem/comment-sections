@@ -19,6 +19,7 @@ export const useInputData = create((set) => ({
 
 export const useSave = create((set) => ({
   SaveData: [],
+ 
   setSaveData: (yu) =>
     set((state) => {
       if (yu) {
@@ -31,26 +32,25 @@ export const useSave = create((set) => ({
               id: Math.random() * 1000,
               likes: 0,
               showReply: false,
+              commentOpen:false,
             },
           ],
         };
       }
       return state;
     }),
-
   setEidtInputupdate: (id, input) =>
     set((state) => ({
       SaveData: state.SaveData.map((item) =>
         Number(item.id) === Number(id) ? { ...item, message: input } : item
       ), // newEidtInputData = undefined
     })),
-
   ChangeReply: (id) =>
     set((state) => {
       console.log("");
       return {
         SaveData: state.SaveData.map((item) =>
-          item.id === id ? { ...item, showReply: !item.showReply } : item
+          Number(item.id) !== Number(id)  ? { ...item, showReply: !item.showReply } : item
         ),
       };
     }),
@@ -63,24 +63,24 @@ export const useSave = create((set) => ({
         ),
       };
     }),
-      
-      setIncrease: (id) =>
+  setIncrease: (id) =>
         set((state) => {
           const updatedData = state.SaveData.map((item) =>  
             item.id === id ? { ...item, likes:item.likes + 1 } : item
           );
-          console.log("Updated SaveData (Increase):", updatedData);
           return { SaveData: updatedData };
         }),
-      
-      setDecrease: (id) =>
+  setDecrease: (id) =>
         set((state) => {
           const updatedData = state.SaveData.map((item) =>  
             item.id === id ? { ...item, likes: item.likes - 1 } : item
           );
-          console.log("Updated SaveData (Decrease):", updatedData);
           return { SaveData: updatedData };
         }),
+  setcommentOpen: (id) =>
+          set((state) => ({
+           SaveDate:state.SaveData.map((item) => Number(item.id) == Number(id) ? { ...item, CommentOpen: !item.commentOpen } : item )})
+         ),
     }));
     
     
