@@ -14,14 +14,14 @@ function PlusMinusButton({ item }) {
       >
         <button
           onClick={() => setDecrease(item.id)}
-          className="flex justify-center rounded-2xl items-center w-10 h-10 hover:bg-indigo-300"
+          className="flex justify-center rounded-2xl items-center w-5 h-2 sm:w-10 sm:h-10 hover:bg-indigo-300"
         >
           <img src={minus} alt="Decrease" />
         </button>
-        <p className="text-indigo-700 text-center text-xl p-2">{item.likes}</p>
+        <p className="text-indigo-700 text-center text-sm sm:text-xl sm:p-2">{item.likes}</p>
         <button
           onClick={() => setIncrease(item.id)}
-          className="flex justify-center rounded-2xl items-center w-10 h-10 hover:bg-indigo-300"
+          className="flex justify-center rounded-2xl items-center w-5 h-2 sm:w-10 sm:h-10 hover:bg-indigo-300"
         >
           <img src={plus} alt="Increase" />
         </button>

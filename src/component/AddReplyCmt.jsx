@@ -18,7 +18,7 @@ function AddReplyCmt({ id }) {
           <div className="w-full flex flex-col-reverse lg:flex-row">
             <img
               src={jul}
-              className="w-16 h-16 lg:mt-0 mt-8 rounded-full mr-4"
+              className="w-7 h-7 md:w-16 md:h-16 lg:mt-0  mt-2 md:mt-8 rounded-full mr-4"
               alt="Profile"
             />
             <input
@@ -34,7 +34,7 @@ function AddReplyCmt({ id }) {
                 setReplyInputData();
               AddReply(id,replyInputData);
             }}
-            className="ml-4 w-20 h-10  relative right-5 lg:right-0 md:right-20 lg:top-0 top-7 md:top-16 bg-indigo-600 text-white rounded-lg font-medium text-sm hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300"
+            className="ml-4 w-10 h-5 md:w-20 md:h-10  relative right-5 lg:right-0 md:right-20 lg:top-0 top-4 md:top-16 bg-indigo-600 text-white rounded-lg font-medium text-xs md:text-sm hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300"
           >
             Add
           </button>

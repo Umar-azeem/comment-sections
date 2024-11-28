@@ -9,11 +9,12 @@ import Replybutton from "./ReplyButton";
 import ReplyData from "./ReplyData";
 import AlartDelete from "./AlartDelete";
 import Eidtcomt from "./Eidtcomt";
+import { useState } from "react";
 
-function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
+function DataUpdate({ handleEidtInputComt }) {
   const { SaveData, setIncrease, setDecrease } = useSave();
   const { setcommentOpen } = useSave();
-
+  const [showAlertId, setShowAlertId] = useState(-1);
   return (
     <>
       {
@@ -28,10 +29,11 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
               ) : (
                 <div
                   key={item.id}
-                  className="flex justify-center items-center sm:m-8"
+                  className="flex justify-center items-center m-2 sm:m-8"
                 >
-                  <div className="bg-white border flex justify-between flex-col  lg:flex-row rounded-lg p-5 w-3/4">
-                    <div className="flex flex-wrap-reverse lg:flex-nowrap">
+                  
+                  <div className="bg-white border flex justify-between flex-col  lg:flex-row rounded-lg p-2 md:p-5 w-full md:w-3/4">
+                    <div className="flex  lg:flex-nowrap">
                       <div className="">
                         <div className="bg-blue-50 w-1/5   lg:w-12 lg:flex-col lg:flex hidden justify-center items-center lg:border-0 rounded-0 border-2 rounded-2xl">
                           <button
@@ -53,35 +55,41 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
                           </button>
                         </div>
                       </div>
-                      <div className="p-4 w-3/5">
+                      <div className="p-1 md:p-4 w-full md:w-3/5">
                         <div className="w-full flex items-center justify-start p-2">
-                          <img src={jul} className="w-10 h-10 mr-3" alt="" />
-                          <h3 className="font-bold mr-2">amyrobson</h3>
+                          <img src={jul} className="w-5 h-5 md:w-10 md:h-10 mr-3" alt="" />
+                          <h3 className="md:font-bold font-semibold mr-2">amyrobson</h3>
                           <p className="text-gray-500 w-full hidden sm:flex justify-center items-center ">
                             1 month ago
                           </p>
                         </div>
-                        <p className="md:text-lg w-full text-sm font-samibold text-gray-500">
+                        <p className="md:text-lg w-full text-xs sm:text-sm font-samibold text-gray-500">
                           {item.message}
                         </p>
-                        <div className="flex justify-between items-center lg:hidden">
+                        <div className="flex flex-row justify-start lg:hidden">
                           <div>
                             <>
                               {" "}
                               <PlusMinusButton item={item} />
                               <p>
-                                {item.message}
                                 {item.set}
                               </p>
                             </>
                           </div>
+                          <div className="flex flex-row gap-4">
                           <DeleteEidt
                             id={item.id}
                             commentOpen={item.commentOpen}
                             setcommentOpen={setcommentOpen}
                             handleEidtInputComt={handleEidtInputComt}
-                            handleAlert={handleAlert}
+                            handleAlert={setShowAlertId}
                           />
+                          <Replybutton
+                        id={item.id}
+                        SaveData={SaveData}
+                        item={item}
+                      />
+                      </div>
                         </div>
                       </div>
                     </div>
@@ -90,7 +98,7 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
                         id={item.id}
                         setcommentOpen={setcommentOpen}
                         handleEidtInputComt={handleEidtInputComt}
-                        handleAlert={handleAlert}
+                        handleAlert={setShowAlertId}
                       />
                       <Replybutton
                         id={item.id}
@@ -104,18 +112,21 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
               )}
               {item.reply.map((reply) => (
                 <div className="flex justify-center items-center sm:mx-10 ">
-                 <ReplyData key={reply.id} reply={reply} />
+                  <ReplyData key={reply.id} reply={reply} />
                 </div>
               ))}
               {item.showReply && (
                 <>
                   {" "}
-                  <AddReplyCmt  id={item.id} />  
+                  <AddReplyCmt id={item.id} />
                 </>
               )}
-              {showAlert && (
+              {showAlertId === item.id && (
                 <div className="absolute w-full top-10">
-                  <AlartDelete id={item.id} handleAlert={handleAlert} />{" "}
+                  <AlartDelete
+                    id={item.id}
+                    handleAlert={() => setShowAlertId(-1)}
+                  />
                 </div>
               )}
             </>

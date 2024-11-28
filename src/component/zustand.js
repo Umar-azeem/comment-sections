@@ -61,15 +61,13 @@ export const useSave = create((set) => ({
         ),
       };
     }),
-  SaveDataDelete: (id) =>
-    set((state) => {
-      console.log("id", id);
-      return {
-        SaveData: state.SaveData.filter(
-          (item) => Number(item.id) !== Number(id)
-        ),
-      };
-    }),
+    SaveDataDelete: (id) =>
+      set((state) => {
+        console.log("Deleting ID:", id);
+        return {
+          SaveData: state.SaveData.filter((item) => String(item.id) !== String(id)),
+        };
+      }),
   setIncrease: (id) =>
     set((state) => {
       const updatedData = state.SaveData.map((item) =>

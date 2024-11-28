@@ -7,8 +7,8 @@ function Eidtcomt({ id, handleEidtInputComt }) {
   };
   return (
     <>
-      <div className="flex justify-center items-center m-8">
-        <div className="bg-white border flex flex-row items-center rounded-lg p-3 md:p-8 w-3/4">
+      <div className="flex justify-center md-4 md:m-8">
+        <div className="bg-white border flex flex-col md:flex-row  rounded-lg p-3 md:p-8 w-3/4">
           <div className="w-full flex flex-col-reverse lg:flex-row">
             <input
               onChange={handleEidtInput}
@@ -23,7 +23,7 @@ function Eidtcomt({ id, handleEidtInputComt }) {
               setEidtInputupdate(id, eidtinputData);
               setcommentOpen(id);
             }}
-            className="ml-4 w-20 h-10 relative right-5 lg:right-0 md:right-20 lg:top-0 top-7 md:top-16 bg-indigo-600 text-white rounded-lg font-medium text-sm hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300"
+            className="ml-4 w-14 h-8 items-start md:w-20 md:h-10 relative right-5 lg:right-0 md:right-20 lg:top-0 top-2 md:top-16 bg-indigo-600 text-white rounded-lg font-medium text-xs md:text-sm hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300"
           >
             Updated
           </button>
