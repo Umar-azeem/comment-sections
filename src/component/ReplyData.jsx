@@ -7,8 +7,9 @@ function DataUpdate({ reply }) {
  
   return (
     <>
-        <div className="bg-white border flex flex-col lg:flex-row rounded-lg p-5 w-3/4">
-          <div className="flex flex-wrap-reverse lg:flex-nowrap">
+            <div className=" flex flex-col lg:flex-row px-4 rounded-sm w-3/4 border-x-8 border-y-0 border-gray-300">
+        <div className="bg-white border flex flex-col lg:flex-row rounded-lg  p-5 w-full ">
+          <div className="flex flex-wrap-reverse  lg:flex-nowrap">
             <div className="">
               <div className="bg-blue-50 w-full lg:w-12 lg:flex-col lg:flex hidden justify-center items-center lg:border-0 rounded-0 border-2 rounded-2xl">
                 <button className="flex justify-center rounded-2xl items-center w-10 h-10 hover:bg-indigo-300">
@@ -40,6 +41,7 @@ function DataUpdate({ reply }) {
             {/* <DeleteEidt handleAlert={handleAlert} /> */}
           </div>
         </div>
+       </div>
     </>
   );
 }

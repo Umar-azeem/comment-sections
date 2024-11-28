@@ -103,9 +103,9 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
                 </div>
               )}
               {item.reply.map((reply) => (
-                <div>
-                  <ReplyData key={reply.id} reply={reply} />
-                  </div>
+                <div className="flex justify-center items-center sm:mx-10 ">
+                 <ReplyData key={reply.id} reply={reply} />
+                </div>
               ))}
               {item.showReply && (
                 <>
