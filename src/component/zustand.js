@@ -52,7 +52,7 @@ export const useSave = create((set) => ({
     })),
   ChangeReply: (id) =>
     set((state) => {
-      console.log("");
+      
       return {
         SaveData: state.SaveData.map((item) =>
           Number(item.id) === Number(id)
@@ -63,7 +63,6 @@ export const useSave = create((set) => ({
     }),
     SaveDataDelete: (id) =>
       set((state) => {
-        console.log("Deleting ID:", id);
         return {
           SaveData: state.SaveData.filter((item) => String(item.id) !== String(id)),
         };

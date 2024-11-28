@@ -12,7 +12,6 @@ function AddReplyCmt({ id }) {
 
   return (
     <>
-      {JSON.stringify( replyInputData)}
       <div className="flex justify-center items-center m-8">
         <div className="bg-white border flex flex-row items-center rounded-lg p-3 md:p-8 w-3/4">
           <div className="w-full flex flex-col-reverse lg:flex-row">

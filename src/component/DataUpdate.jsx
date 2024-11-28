@@ -69,7 +69,7 @@ function DataUpdate({ handleEidtInputComt }) {
                         <div className="flex flex-row justify-start lg:hidden">
                           <div>
                             <>
-                              {" "}
+                             
                               <PlusMinusButton item={item} />
                               <p>
                                 {item.set}
@@ -106,7 +106,7 @@ function DataUpdate({ handleEidtInputComt }) {
                         item={item}
                       />
                       {/* Pass handleAlert here */}
-                    </div>{" "}
+                    </div>
                   </div>
                 </div>
               )}
@@ -117,7 +117,7 @@ function DataUpdate({ handleEidtInputComt }) {
               ))}
               {item.showReply && (
                 <>
-                  {" "}
+                  
                   <AddReplyCmt id={item.id} />
                 </>
               )}

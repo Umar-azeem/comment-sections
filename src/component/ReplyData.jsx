@@ -7,7 +7,7 @@ function DataUpdate({ reply }) {
  
   return (
     <>
-            <div className=" flex flex-col lg:flex-row pl-2 md:pl-5 rounded-sm w-3/4 border-x-4 md:border-x-8 border-r-0 border-gray-300">
+      <div className=" flex flex-col lg:flex-row pl-2 md:pl-5 rounded-sm w-3/4 border-x-4 md:border-x-8 border-r-0 border-gray-300">
         <div className="bg-white border flex flex-col lg:flex-row rounded-lg  md:p-2 w-full ">
           <div className="flex flex-wrap-reverse  lg:flex-nowrap">
             <div className="">
