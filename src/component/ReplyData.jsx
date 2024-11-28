@@ -7,7 +7,6 @@ function DataUpdate({ reply }) {
  
   return (
     <>
-      <div className="bg-red-500 flex justify-center items-center sm:m-8">
         <div className="bg-white border flex flex-col lg:flex-row rounded-lg p-5 w-3/4">
           <div className="flex flex-wrap-reverse lg:flex-nowrap">
             <div className="">
@@ -30,7 +29,7 @@ function DataUpdate({ reply }) {
                 <p className="text-gray-500 hidden sm:flex">1 month ago</p>
               </div>
               <p className="md:text-lg text-sm font-samibold text-gray-500">
-                {reply.message}
+                {reply.singleReply}
               </p>
               <div className="flex justify-between items-center lg:hidden">
                 <div></div>
@@ -41,7 +40,6 @@ function DataUpdate({ reply }) {
             {/* <DeleteEidt handleAlert={handleAlert} /> */}
           </div>
         </div>
-      </div>
     </>
   );
 }

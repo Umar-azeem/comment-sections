@@ -5,7 +5,6 @@ function Eidtcomt({ id, handleEidtInputComt }) {
   const handleEidtInput = (e) => {
     setEidtInputData(e.target.value);
   };
-
   return (
     <>
       <div className="flex justify-center items-center m-8">

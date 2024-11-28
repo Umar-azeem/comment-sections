@@ -103,10 +103,9 @@ function DataUpdate({ handleAlert, showAlert, handleEidtInputComt }) {
                 </div>
               )}
               {item.reply.map((reply) => (
-                <div className="w-96">
-                    sss
+                <div>
                   <ReplyData key={reply.id} reply={reply} />
-                </div>
+                  </div>
               ))}
               {item.showReply && (
                 <>

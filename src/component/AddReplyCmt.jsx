@@ -32,7 +32,7 @@ function AddReplyCmt({ id }) {
           <button
             onClick={() => {
                 setReplyInputData();
-              AddReply();
+              AddReply(id,replyInputData);
             }}
             className="ml-4 w-20 h-10  relative right-5 lg:right-0 md:right-20 lg:top-0 top-7 md:top-16 bg-indigo-600 text-white rounded-lg font-medium text-sm hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300"
           >

@@ -8,7 +8,6 @@ function App() {
   const handleAlert = () =>  {
     setShowAlert(!showAlert);
   };
-
   const handleEidtInputComt = () =>  {
     setShowEidt(!showEidt);
   };

@@ -18,7 +18,7 @@ export const useInputData = create((set) => ({
     })),
     setReplyInputData: (newReplyInputData) =>
       set(() => ({
-        eidtinputData: newReplyInputData,
+       replyInputData: newReplyInputData,
       })),
 }));
 
@@ -95,12 +95,12 @@ export const useSave = create((set) => ({
         ),
       };
     }),
-  AddReply: ({ id, replyInputData }) =>
+  AddReply: (id, replyInputData) =>
     set((state) => {
       console.log("s",replyInputData);
       return {
         SaveData: state.SaveData.map((item) =>
-          Number(item.id) === Number(id) ? { ...item, reply: replyInputData } : item
+          Number(item.id) === Number(id) ? { ...item, reply: [...item.reply, {singleReply:replyInputData}] } : item
         ),
       };
     }),
